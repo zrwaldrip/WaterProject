@@ -14,16 +14,30 @@ namespace WaterProject.API.Controllers
         public WaterController(WaterDbContext temp) => _context = temp;
 
         [HttpGet("AllProjects")]
-        public IEnumerable<Project> GetProjects()
+        public IActionResult GetProjects(int pageSize = 10, int pageNum = 1)
         {
-            return _context.Projects.ToList();
+            var something = _context.Projects
+                .Skip((pageNum - 1) * pageSize)
+                .Take(pageSize)
+                .ToList();
+            
+            var totalNumProjects = _context.Projects.Count();
+            return Ok(new
+            {
+                Projects = something,
+                TotalNumProjects = totalNumProjects
+            });
         }
 
-        [HttpGet("FunctionalProjects")]
-        public IEnumerable<Project> GetFunctionalProjects()
+        [HttpGet("GetProjectTypes")]
+        public IActionResult GetProjectTypes()
         {
-            var something = _context.Projects.Where(p => p.ProjectFunctionalityStatus == "Functional").ToList();
-            return something;
+            var projectTypes = _context.Projects
+                .Select(p => p.ProjectType)
+                .Distinct()
+                .ToList();
+
+            return Ok(projectTypes);
         }
     }
 }

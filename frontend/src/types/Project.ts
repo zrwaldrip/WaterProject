@@ -1,7 +1,7 @@
 export interface Project {
   projectId: number;
   projectName: string;
-  porjectType: string;
+  projectType: string;
   projectRegionalProgram: string;
   projectImpact: number;
   projectPhase: string;
