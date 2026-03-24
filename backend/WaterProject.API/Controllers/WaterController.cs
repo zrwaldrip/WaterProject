@@ -14,14 +14,21 @@ namespace WaterProject.API.Controllers
         public WaterController(WaterDbContext temp) => _context = temp;
 
         [HttpGet("AllProjects")]
-        public IActionResult GetProjects(int pageSize = 10, int pageNum = 1)
+        public IActionResult GetProjects(int pageSize = 10, int pageNum = 1, [FromQuery] List<string> projectTypes = null)
         {
-            var something = _context.Projects
+            var query = _context.Projects.AsQueryable();
+
+            if (projectTypes != null && projectTypes.Any())
+            {
+                query = query.Where(p => projectTypes.Contains(p.ProjectType));
+            }
+            
+            var totalNumProjects = query.Count();
+            
+            var something = query
                 .Skip((pageNum - 1) * pageSize)
                 .Take(pageSize)
                 .ToList();
-            
-            var totalNumProjects = _context.Projects.Count();
             return Ok(new
             {
                 Projects = something,
