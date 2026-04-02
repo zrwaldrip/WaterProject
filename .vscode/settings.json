@@ -1,4 +1,1 @@
-{
-  "appService.defaultWebAppToDeploy": "/subscriptions/d339ea8a-c9a1-4469-8cfd-634856afba10/resourceGroups/appsvc_windows_eastus/providers/Microsoft.Web/sites/WaterProject-Waldrip-Backend",
-  "appService.deploySubpath": "."
-}
+
