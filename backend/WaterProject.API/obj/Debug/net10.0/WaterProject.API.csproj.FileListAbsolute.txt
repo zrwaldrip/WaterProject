@@ -262,3 +262,5 @@
 /Users/zacharywaldrip/IS413/WaterProject/backend/WaterProject.API/obj/Debug/net10.0/WaterProject.API.pdb
 /Users/zacharywaldrip/IS413/WaterProject/backend/WaterProject.API/obj/Debug/net10.0/WaterProject.API.genruntimeconfig.cache
 /Users/zacharywaldrip/IS413/WaterProject/backend/WaterProject.API/obj/Debug/net10.0/ref/WaterProject.API.dll
+/Users/zacharywaldrip/IS413/WaterProject/backend/WaterProject.API/obj/Debug/net10.0/WaterProject.API.sourcelink.json
+/Users/zacharywaldrip/IS413/WaterProject/backend/WaterProject.API/bin/Debug/net10.0/WaterProject.sqlite
